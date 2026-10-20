@@ -4,6 +4,10 @@ Each rule here is an attacker technique seen from the defender's side: the momen
 
 ![Analyst report: the RC4 rule's benign signal, traced to the approved-admin event that caused it](docs/screenshots/hero.jpg)
 
+## The attack
+
+The rules follow a ransomware operator's path through a Windows domain: a macro that spawns a shell from an Office document, credential theft from LSASS memory, Kerberoasting with RC4 service tickets, lateral movement with PsExec, WMI and administrative shares, then the impact stage: shadow copies and backup catalogues deleted, boot recovery disabled, Defender switched off, event logs cleared, ransom notes dropped and files rewritten in a burst. Each rule is one of those moves, seen from the defender's side.
+
 ## What it does
 
 - Defines 15 detections as **Sigma** rules (a vendor-neutral YAML format for log detections) covering the path from initial access to file impact in a Windows Active Directory domain.
