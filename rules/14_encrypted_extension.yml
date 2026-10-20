@@ -1,0 +1,27 @@
+title: File creation with a ransomware-associated extension
+id: 78874254-c831-569c-96ef-82a053cc0b60
+status: experimental
+description: Candidate file-create event for the burst correlation. Sysmon Event 11
+  sees file creation/overwrite, not every rename and not file entropy; extensionless
+  encryption is a blind spot.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1486/
+tags:
+- attack.impact
+- attack.t1486
+logsource:
+  product: windows
+  category: file_event
+detection:
+  selection:
+    TargetFilename|endswith:
+    - .locked
+    - .encrypted
+    - .ryk
+  condition: selection
+falsepositives:
+- Archive/test tools can use these extensions. The individual event is a low-confidence
+  signal; prioritize the 20-distinct-file correlation.
+level: low

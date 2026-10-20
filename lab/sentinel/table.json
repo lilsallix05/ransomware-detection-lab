@@ -1,0 +1,118 @@
+{
+  "properties": {
+    "schema": {
+      "name": "SelbiADLab_CL",
+      "columns": [
+        {
+          "name": "TimeGenerated",
+          "type": "datetime"
+        },
+        {
+          "name": "RecordId",
+          "type": "string"
+        },
+        {
+          "name": "TimeCreated",
+          "type": "string"
+        },
+        {
+          "name": "Computer",
+          "type": "string"
+        },
+        {
+          "name": "Provider",
+          "type": "string"
+        },
+        {
+          "name": "Channel",
+          "type": "string"
+        },
+        {
+          "name": "EventID",
+          "type": "long"
+        },
+        {
+          "name": "LogonType",
+          "type": "long"
+        },
+        {
+          "name": "IpAddress",
+          "type": "string"
+        },
+        {
+          "name": "TargetUserName",
+          "type": "string"
+        },
+        {
+          "name": "SubjectUserName",
+          "type": "string"
+        },
+        {
+          "name": "ServiceName",
+          "type": "string"
+        },
+        {
+          "name": "TicketEncryptionType",
+          "type": "string"
+        },
+        {
+          "name": "Status",
+          "type": "string"
+        },
+        {
+          "name": "Image",
+          "type": "string"
+        },
+        {
+          "name": "ParentImage",
+          "type": "string"
+        },
+        {
+          "name": "CommandLine",
+          "type": "string"
+        },
+        {
+          "name": "SourceImage",
+          "type": "string"
+        },
+        {
+          "name": "TargetImage",
+          "type": "string"
+        },
+        {
+          "name": "GrantedAccess",
+          "type": "string"
+        },
+        {
+          "name": "ImagePath",
+          "type": "string"
+        },
+        {
+          "name": "ScriptBlockText",
+          "type": "string"
+        },
+        {
+          "name": "ShareName",
+          "type": "string"
+        },
+        {
+          "name": "AccessMask",
+          "type": "string"
+        },
+        {
+          "name": "RelativeTargetName",
+          "type": "string"
+        },
+        {
+          "name": "TargetFilename",
+          "type": "string"
+        },
+        {
+          "name": "User",
+          "type": "string"
+        }
+      ]
+    },
+    "retentionInDays": 30
+  }
+}

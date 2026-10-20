@@ -1,0 +1,29 @@
+title: RC4 service ticket for a non-machine service
+id: fdc3317b-1ae4-5da3-af8c-68fd10f89f79
+status: experimental
+description: Successful RC4 TGS request for a non-machine/non-krbtgt service. A candidate
+  for Kerberoasting investigation; legacy services are legitimate.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1558/003/
+tags:
+- attack.credential_access
+- attack.t1558.003
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4769
+    TicketEncryptionType: '0x17'
+    Status: '0x0'
+  filter_machine:
+    ServiceName|endswith: $
+  filter_krbtgt:
+    ServiceName: krbtgt
+  condition: selection and not filter_machine and not filter_krbtgt
+falsepositives:
+- Legacy service accounts using RC4. Inventory service owners, prioritize AES migration,
+  and correlate unusual request volume.
+level: medium

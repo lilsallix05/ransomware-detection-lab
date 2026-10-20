@@ -1,0 +1,26 @@
+title: File created with a common ransom-note name
+id: b969daf7-3a83-5527-b761-8bd09aa58800
+status: experimental
+description: Creation of one of three explicitly listed ransom-note filenames. Content
+  and successful encryption are not inferred.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1486/
+tags:
+- attack.impact
+- attack.t1486
+logsource:
+  product: windows
+  category: file_event
+detection:
+  selection:
+    TargetFilename|endswith:
+    - \HOW_TO_DECRYPT.txt
+    - \README_RESTORE_FILES.txt
+    - \RECOVER_FILES.html
+  condition: selection
+falsepositives:
+- Security training or restored backups. Investigate adjacent file bursts, signer
+  and affected shares; names alone are weak.
+level: medium

@@ -1,0 +1,27 @@
+title: PowerShell requests Defender real-time protection disablement
+id: e3f1f661-55d9-5dcc-aca7-dec037bd8e32
+status: experimental
+description: PowerShell script block contains Defender disablement parameters. Tamper
+  Protection may prevent the action; inspect Defender state before claiming success.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1562/001/
+tags:
+- attack.defense_evasion
+- attack.t1562.001
+logsource:
+  product: windows
+  service: powershell
+detection:
+  selection:
+    EventID: 4104
+    ScriptBlockText|contains|all:
+    - Set-MpPreference
+    - DisableRealtimeMonitoring
+    - $true
+  condition: selection
+falsepositives:
+- Approved troubleshooting. Require endpoint owner review; do not allowlist all PowerShell
+  or administrator activity.
+level: high

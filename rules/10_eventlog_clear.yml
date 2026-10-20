@@ -1,0 +1,26 @@
+title: Windows event log cleared using wevtutil
+id: 2c39e934-3c37-531a-9a35-4365bd2d9854
+status: experimental
+description: Command-line request to clear a Windows event log. A successful command
+  is not established by process creation.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1070/001/
+tags:
+- attack.defense_evasion
+- attack.t1070.001
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image|endswith: \wevtutil.exe
+    CommandLine|contains:
+    - ' cl '
+    - ' clear-log '
+  condition: selection
+falsepositives:
+- Lab resets and log maintenance. Correlate Security 1102 and Eventlog 104 plus account
+  identity.
+level: high

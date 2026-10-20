@@ -1,0 +1,23 @@
+{
+  "path": "work/public-kerberoasting.xml",
+  "sha256": "fd4d9e35bd90964710a2f67bd90476ac69301310256bb319b16662aa04821d79",
+  "accepted": 1,
+  "rejected": [],
+  "source": {
+    "name": "Splunk attack_data \u2014 Kerberoasting SPN request with RC4 encryption",
+    "repository": "https://github.com/splunk/attack_data",
+    "revision": "aafa53ea228fbab8d9ac3e33c9275fab2136909d",
+    "path": "datasets/attack_techniques/T1558.003/kerberoasting_spn_request_with_rc4_encryption/windows-xml.log",
+    "url": "https://media.githubusercontent.com/media/splunk/attack_data/aafa53ea228fbab8d9ac3e33c9275fab2136909d/datasets/attack_techniques/T1558.003/kerberoasting_spn_request_with_rc4_encryption/windows-xml.log",
+    "sha256": "fd4d9e35bd90964710a2f67bd90476ac69301310256bb319b16662aa04821d79",
+    "bytes": 1127,
+    "license": "Apache-2.0",
+    "license_url": "https://github.com/splunk/attack_data/blob/aafa53ea228fbab8d9ac3e33c9275fab2136909d/LICENSE",
+    "dataset_manifest_url": "https://github.com/splunk/attack_data/blob/aafa53ea228fbab8d9ac3e33c9275fab2136909d/datasets/attack_techniques/T1558.003/kerberoasting_spn_request_with_rc4_encryption/data.yml",
+    "expected_rule_slug": "04_rc4_service_ticket",
+    "label_limit": "One independently generated event, not a broad recall benchmark or benign baseline. No claim about the remaining rules follows."
+  },
+  "retrieved_at": "2026-10-19T03:04:33.398375+00:00",
+  "kind": "independent_public_dataset",
+  "label_scope": "Dataset technique label; individual events are not independently adjudicated"
+}

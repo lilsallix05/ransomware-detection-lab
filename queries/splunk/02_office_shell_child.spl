@@ -1,0 +1,1 @@
+index=adlab sourcetype=selbi:adlab Provider="Microsoft-Windows-Sysmon" EventID=1 (ParentImage IN ("*\\WINWORD.EXE", "*\\EXCEL.EXE", "*\\OUTLOOK.EXE") Image IN ("*\\powershell.exe", "*\\pwsh.exe", "*\\cmd.exe", "*\\wscript.exe", "*\\cscript.exe"))

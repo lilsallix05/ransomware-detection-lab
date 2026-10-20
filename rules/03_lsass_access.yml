@@ -1,0 +1,29 @@
+title: Nonstandard process opens LSASS with dump-compatible access
+id: 85e7a148-4e57-50b0-ae1e-462d7e171453
+status: experimental
+description: Sysmon ProcessAccess to LSASS with selected read/full-access masks. Access
+  is a signal, not proof a dump was written.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1003/001/
+tags:
+- attack.credential_access
+- attack.t1003.001
+logsource:
+  product: windows
+  category: process_access
+detection:
+  selection:
+    TargetImage|endswith: \lsass.exe
+    GrantedAccess:
+    - '0x1fffff'
+    - '0x1f0fff'
+    - '0x1010'
+    - '0x1410'
+    - '0x143a'
+  condition: selection
+falsepositives:
+- EDR and diagnostic tools. Match signer, known binary hash and access policy; broad
+  SourceImage exclusions hide attacks.
+level: high

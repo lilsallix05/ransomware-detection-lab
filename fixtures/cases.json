@@ -1,0 +1,173 @@
+[
+  {
+    "name": "01_rdp_remote_logon",
+    "rule_id": "59c2e095-249a-560e-a1e2-a7cc4c834043",
+    "positive": [
+      "attack-0001"
+    ],
+    "negative": [
+      "near-0001"
+    ]
+  },
+  {
+    "name": "02_office_shell_child",
+    "rule_id": "e7df34fb-7a1d-5bf0-8aa6-489e67893dcd",
+    "positive": [
+      "attack-0002"
+    ],
+    "negative": [
+      "near-0002"
+    ]
+  },
+  {
+    "name": "03_lsass_access",
+    "rule_id": "85e7a148-4e57-50b0-ae1e-462d7e171453",
+    "positive": [
+      "attack-0003"
+    ],
+    "negative": [
+      "near-0003"
+    ]
+  },
+  {
+    "name": "04_rc4_service_ticket",
+    "rule_id": "fdc3317b-1ae4-5da3-af8c-68fd10f89f79",
+    "positive": [
+      "attack-0004"
+    ],
+    "negative": [
+      "near-0004"
+    ]
+  },
+  {
+    "name": "05_psexec_service",
+    "rule_id": "95fa0642-eb08-5576-8020-7c3fd01b51fb",
+    "positive": [
+      "attack-0005"
+    ],
+    "negative": [
+      "near-0005"
+    ]
+  },
+  {
+    "name": "06_wmi_shell_child",
+    "rule_id": "6196d0e9-5088-56eb-b1bb-46a089609e2a",
+    "positive": [
+      "attack-0006"
+    ],
+    "negative": [
+      "near-0006"
+    ]
+  },
+  {
+    "name": "07_shadow_copy_delete",
+    "rule_id": "168f427a-bb72-5ebd-817e-936edd1a77b0",
+    "positive": [
+      "attack-0007"
+    ],
+    "negative": [
+      "near-0007"
+    ]
+  },
+  {
+    "name": "08_backup_catalog_delete",
+    "rule_id": "a60487ac-cd52-5f41-838b-d4ac658ac28a",
+    "positive": [
+      "attack-0008"
+    ],
+    "negative": [
+      "near-0008"
+    ]
+  },
+  {
+    "name": "09_boot_recovery_disable",
+    "rule_id": "dbf82dbb-0113-540e-8f13-3a506bebb4c0",
+    "positive": [
+      "attack-0009"
+    ],
+    "negative": [
+      "near-0009"
+    ]
+  },
+  {
+    "name": "10_eventlog_clear",
+    "rule_id": "2c39e934-3c37-531a-9a35-4365bd2d9854",
+    "positive": [
+      "attack-0010"
+    ],
+    "negative": [
+      "near-0010"
+    ]
+  },
+  {
+    "name": "11_defender_protection_disable",
+    "rule_id": "e3f1f661-55d9-5dcc-aca7-dec037bd8e32",
+    "positive": [
+      "attack-0011"
+    ],
+    "negative": [
+      "near-0011"
+    ]
+  },
+  {
+    "name": "12_admin_share_write",
+    "rule_id": "b3f2d9c1-d975-57d3-b2f7-f8c7d3df0874",
+    "positive": [
+      "attack-0012"
+    ],
+    "negative": [
+      "near-0012"
+    ]
+  },
+  {
+    "name": "13_ransom_note_created",
+    "rule_id": "b969daf7-3a83-5527-b761-8bd09aa58800",
+    "positive": [
+      "attack-0013"
+    ],
+    "negative": [
+      "near-0013"
+    ]
+  },
+  {
+    "name": "14_encrypted_extension",
+    "rule_id": "78874254-c831-569c-96ef-82a053cc0b60",
+    "positive": [
+      "attack-0014"
+    ],
+    "negative": [
+      "near-0014"
+    ]
+  },
+  {
+    "name": "15_mass_file_burst",
+    "rule_id": "1a3a938c-2c10-5c58-b9e4-3d3997630332",
+    "positive": [
+      "burst-0100",
+      "burst-0101",
+      "burst-0102",
+      "burst-0103",
+      "burst-0104",
+      "burst-0105",
+      "burst-0106",
+      "burst-0107",
+      "burst-0108",
+      "burst-0109",
+      "burst-0110",
+      "burst-0111",
+      "burst-0112",
+      "burst-0113",
+      "burst-0114",
+      "burst-0115",
+      "burst-0116",
+      "burst-0117",
+      "burst-0118",
+      "burst-0119",
+      "burst-0120",
+      "burst-0121",
+      "burst-0122",
+      "burst-0123"
+    ],
+    "negative": []
+  }
+]

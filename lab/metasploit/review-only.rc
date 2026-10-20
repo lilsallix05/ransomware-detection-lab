@@ -1,0 +1,4 @@
+# Review-only integration: no use, set, run, exploit, sessions or payload commands.
+version
+search type:post platform:windows gather
+exit -y

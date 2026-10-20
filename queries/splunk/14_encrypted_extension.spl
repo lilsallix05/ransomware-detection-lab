@@ -1,0 +1,1 @@
+index=adlab sourcetype=selbi:adlab Provider="Microsoft-Windows-Sysmon" EventID=11 (TargetFilename IN ("*.locked", "*.encrypted", "*.ryk"))

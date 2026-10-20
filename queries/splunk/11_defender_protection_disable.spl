@@ -1,0 +1,1 @@
+index=adlab sourcetype=selbi:adlab Channel="Microsoft-Windows-PowerShell/Operational" Provider="Microsoft-Windows-PowerShell" (EventID=4104 ScriptBlockText="*Set-MpPreference*" ScriptBlockText="*DisableRealtimeMonitoring*" ScriptBlockText="*$true*")

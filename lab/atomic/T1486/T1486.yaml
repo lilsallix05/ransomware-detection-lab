@@ -1,0 +1,22 @@
+attack_technique: T1486
+display_name: Data Encrypted for Impact — harmless telemetry surrogate
+atomic_tests:
+  - name: Selbi harmless file-create burst (does not encrypt)
+    auto_generated_guid: 48550b0e-d60c-47b0-a74f-08f8c7ba569d
+    description: Creates only new plaintext files in a unique temporary directory. Exercises Sysmon file-create detection without reproducing encryption. Requires dedicated lab marker; no cleanup command deletes evidence.
+    supported_platforms:
+      - windows
+    executor:
+      name: powershell
+      elevation_required: false
+      command: |
+        $ErrorActionPreference = 'Stop'
+        if (-not (Test-Path 'C:\SelbiLab\LAB-ONLY')) { throw 'Dedicated lab marker required' }
+        $run = Join-Path $env:TEMP ('SelbiAtomic-' + [guid]::NewGuid().ToString())
+        New-Item -ItemType Directory -Path $run | Out-Null
+        1..24 | ForEach-Object {
+          [System.IO.File]::WriteAllText((Join-Path $run ('sample-{0:d2}.locked' -f $_)), 'SYNTHETIC plaintext; no encryption performed.')
+          Start-Sleep -Milliseconds 500
+        }
+        [System.IO.File]::WriteAllText((Join-Path $run 'HOW_TO_DECRYPT.txt'), 'SYNTHETIC note; no encryption performed.')
+        Write-Output "Evidence directory: $run"

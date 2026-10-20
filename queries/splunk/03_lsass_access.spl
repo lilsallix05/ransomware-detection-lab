@@ -1,0 +1,1 @@
+index=adlab sourcetype=selbi:adlab Provider="Microsoft-Windows-Sysmon" EventID=10 (TargetImage="*\\lsass.exe" GrantedAccess IN ("0x1fffff", "0x1f0fff", "0x1010", "0x1410", "0x143a"))

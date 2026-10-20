@@ -1,0 +1,15 @@
+{
+  "kind": "authored_synthetic",
+  "created": "2026-10-19",
+  "capture_performed": false,
+  "attack_events": 38,
+  "benign_events": 244,
+  "near_miss_events": 14,
+  "benign_clock_span_seconds": 7170,
+  "warning": "Fictional timestamps, not a two-hour real benign capture. Four approved administrative actions intentionally match signals. Positive cases were written alongside the detections; independent dataset evaluation is reported separately.",
+  "sha256": {
+    "attack.jsonl": "0835f189042f293ef9fda70371a32e374dfbf6e7c917678a8bc0f1243cf74eac",
+    "benign.jsonl": "6a02601f3ee0fbc09b77aaf6106f44b010f7c8e6fe8beb832082b409202448ab",
+    "near-miss.jsonl": "943a778052efc0c4338ffe1613c52712c528f00ce6ee82190b58a8fb6fe85bee"
+  }
+}

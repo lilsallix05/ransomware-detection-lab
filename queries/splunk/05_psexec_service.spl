@@ -1,0 +1,1 @@
+index=adlab sourcetype=selbi:adlab Channel="System" Provider="Service Control Manager" (EventID=7045 ImagePath="*PSEXESVC*")

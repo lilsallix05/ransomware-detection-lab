@@ -1,0 +1,3 @@
+SelbiADLab_CL
+| where Provider == "Microsoft-Windows-Sysmon" and EventID == 11
+| where TargetFilename endswith ".locked" or TargetFilename endswith ".encrypted" or TargetFilename endswith ".ryk"

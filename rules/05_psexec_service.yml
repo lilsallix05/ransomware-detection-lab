@@ -1,0 +1,24 @@
+title: PsExec service installation
+id: 95fa0642-eb08-5576-8020-7c3fd01b51fb
+status: experimental
+description: A service binary contains the conventional PsExec service name. Renamed
+  services evade this signature; use alongside remote share and logon evidence.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1569/002/
+tags:
+- attack.execution
+- attack.t1569.002
+logsource:
+  product: windows
+  service: system
+detection:
+  selection:
+    EventID: 7045
+    ImagePath|contains: PSEXESVC
+  condition: selection
+falsepositives:
+- Approved helpdesk PsExec usage. Require a change ticket and source endpoint correlation
+  before suppressing.
+level: high

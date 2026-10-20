@@ -1,0 +1,1 @@
+index=adlab sourcetype=selbi:adlab Channel="Security" Provider="Microsoft-Windows-Security-Auditing" (EventID=4624 LogonType=10 NOT (IpAddress IN ("127.0.0.1", "::1", "-")))

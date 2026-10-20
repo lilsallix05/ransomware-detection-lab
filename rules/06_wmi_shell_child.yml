@@ -1,0 +1,27 @@
+title: WMI provider spawns a shell
+id: 6196d0e9-5088-56eb-b1bb-46a089609e2a
+status: experimental
+description: WMI provider shell child. Host process data alone does not establish
+  whether WMI was remote.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1047/
+tags:
+- attack.execution
+- attack.t1047
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    ParentImage|endswith: \WmiPrvSE.exe
+    Image|endswith:
+    - \cmd.exe
+    - \powershell.exe
+    - \pwsh.exe
+  condition: selection
+falsepositives:
+- Configuration-management software. Correlate WMI-Activity operational logs, source
+  logons and management-server identity.
+level: medium

@@ -1,0 +1,32 @@
+title: Office application spawns a command interpreter
+id: e7df34fb-7a1d-5bf0-8aa6-489e67893dcd
+status: experimental
+description: Office-to-shell process relationship consistent with document execution.
+  Does not inspect the email or prove phishing.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1204/002/
+tags:
+- attack.execution
+- attack.t1204.002
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    ParentImage|endswith:
+    - \WINWORD.EXE
+    - \EXCEL.EXE
+    - \OUTLOOK.EXE
+    Image|endswith:
+    - \powershell.exe
+    - \pwsh.exe
+    - \cmd.exe
+    - \wscript.exe
+    - \cscript.exe
+  condition: selection
+falsepositives:
+- Approved document macros or add-ins. Tune exact signed parent/child path and deployment
+  owner after review.
+level: high

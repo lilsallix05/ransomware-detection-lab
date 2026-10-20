@@ -1,0 +1,14 @@
+# Optional Windows collector -> existing local Elasticsearch. No deployment performed.
+winlogbeat.event_logs:
+  - name: Microsoft-Windows-Sysmon/Operational
+    event_id: 1, 10, 11
+  - name: Security
+    event_id: 4624, 4769, 5145, 1102
+  - name: System
+    event_id: 7045
+  - name: Microsoft-Windows-PowerShell/Operational
+    event_id: 4104
+output.elasticsearch:
+  hosts: ["https://siem.selbi.lab:9200"]
+  api_key: "${ELASTIC_API_KEY}"
+  ssl.certificate_authorities: ["C:/SelbiLab/ca.crt"]

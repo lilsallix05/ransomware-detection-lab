@@ -1,0 +1,37 @@
+title: Executable write requested over an administrative share
+id: b3f2d9c1-d975-57d3-b2f7-f8c7d3df0874
+status: experimental
+description: Detailed file-share access requests include write access to executable-like
+  names. The listed masks are intentionally bounded and are not a complete Windows
+  bitmask evaluator.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1021/002/
+tags:
+- attack.lateral_movement
+- attack.t1021.002
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 5145
+    ShareName|endswith:
+    - \ADMIN$
+    - \C$
+    AccessMask:
+    - '0x2'
+    - '0x3'
+    - '0x12019f'
+    - '0x100002'
+    RelativeTargetName|endswith:
+    - .exe
+    - .dll
+    - .ps1
+    - .bat
+  condition: selection
+falsepositives:
+- Software deployment and helpdesk copies. Correlate source account, endpoint and
+  change window; do not equate access check with successful copy.
+level: medium

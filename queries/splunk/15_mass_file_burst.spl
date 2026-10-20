@@ -1,0 +1,6 @@
+index=adlab sourcetype=selbi:adlab Provider="Microsoft-Windows-Sysmon" EventID=11 (TargetFilename IN ("*.locked", "*.encrypted", "*.ryk"))
+| eval _time=coalesce(_time,strptime(TimeCreated, "%Y-%m-%dT%H:%M:%S.%N%:z"),strptime(TimeCreated, "%Y-%m-%dT%H:%M:%S%:z"),strptime(TimeCreated, "%Y-%m-%dT%H:%M:%S.%NZ"),strptime(TimeCreated, "%Y-%m-%dT%H:%M:%SZ")), HostKey=lower(Computer), ImageKey=lower(Image), FileKey=lower(TargetFilename)
+| where isnotnull(_time) AND isnotnull(HostKey) AND isnotnull(ImageKey) AND isnotnull(FileKey)
+| sort 0 _time RecordId
+| streamstats time_window=60s dc(FileKey) as distinct_files by HostKey ImageKey
+| where distinct_files >= 20

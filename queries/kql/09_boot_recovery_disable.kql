@@ -1,0 +1,3 @@
+SelbiADLab_CL
+| where Provider == "Microsoft-Windows-Sysmon" and EventID == 1
+| where Image endswith "\\bcdedit.exe" and (CommandLine contains "recoveryenabled" and CommandLine contains "no")

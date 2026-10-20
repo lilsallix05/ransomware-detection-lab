@@ -1,0 +1,1 @@
+index=adlab sourcetype=selbi:adlab Channel="Security" Provider="Microsoft-Windows-Security-Auditing" (EventID=5145 ShareName IN ("*\\ADMIN$", "*\\C$") AccessMask IN ("0x2", "0x3", "0x12019f", "0x100002") RelativeTargetName IN ("*.exe", "*.dll", "*.ps1", "*.bat"))

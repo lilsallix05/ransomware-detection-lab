@@ -1,0 +1,3 @@
+SelbiADLab_CL
+| where Provider == "Microsoft-Windows-Sysmon" and EventID == 1
+| where (ParentImage endswith "\\WINWORD.EXE" or ParentImage endswith "\\EXCEL.EXE" or ParentImage endswith "\\OUTLOOK.EXE") and (Image endswith "\\powershell.exe" or Image endswith "\\pwsh.exe" or Image endswith "\\cmd.exe" or Image endswith "\\wscript.exe" or Image endswith "\\cscript.exe")

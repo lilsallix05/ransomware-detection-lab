@@ -1,0 +1,13 @@
+let candidates = materialize(
+SelbiADLab_CL
+| where Provider == "Microsoft-Windows-Sysmon" and EventID == 11
+| where TargetFilename endswith ".locked" or TargetFilename endswith ".encrypted" or TargetFilename endswith ".ryk"
+| where isnotempty(Computer) and isnotempty(Image) and isnotempty(TargetFilename)
+| project TimeGenerated=todatetime(TimeCreated), RecordId, HostKey=tolower(Computer), ImageKey=tolower(Image), FileKey=tolower(TargetFilename)
+);
+candidates
+| project Anchor=TimeGenerated, AnchorId=RecordId, HostKey, ImageKey
+| join kind=inner (candidates | project Observed=TimeGenerated, HostKey, ImageKey, FileKey) on HostKey, ImageKey
+| where Observed between ((Anchor - 1m) .. Anchor)
+| summarize distinct_files=count_distinct(FileKey) by Anchor, AnchorId, HostKey, ImageKey
+| where distinct_files >= 20

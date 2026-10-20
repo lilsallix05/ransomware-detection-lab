@@ -1,0 +1,1 @@
+index=adlab sourcetype=selbi:adlab Provider="Microsoft-Windows-Sysmon" EventID=1 (Image="*\\vssadmin.exe" CommandLine="*delete*" CommandLine="*shadows*")

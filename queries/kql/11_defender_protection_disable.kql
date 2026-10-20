@@ -1,0 +1,3 @@
+SelbiADLab_CL
+| where Channel == "Microsoft-Windows-PowerShell/Operational" and Provider == "Microsoft-Windows-PowerShell"
+| where EventID == 4104 and (ScriptBlockText contains "Set-MpPreference" and ScriptBlockText contains "DisableRealtimeMonitoring" and ScriptBlockText contains "$true")

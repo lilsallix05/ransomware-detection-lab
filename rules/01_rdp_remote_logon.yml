@@ -1,0 +1,29 @@
+title: Remote interactive logon from a network address
+id: 59c2e095-249a-560e-a1e2-a7cc4c834043
+status: experimental
+description: Remote interactive logon is an investigation lead; this rule cannot establish
+  exposed RDP or malicious initial access.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1021/001/
+tags:
+- attack.lateral_movement
+- attack.t1021.001
+logsource:
+  product: windows
+  service: security
+detection:
+  selection:
+    EventID: 4624
+    LogonType: 10
+  filter_loopback:
+    IpAddress:
+    - 127.0.0.1
+    - ::1
+    - '-'
+  condition: selection and not filter_loopback
+falsepositives:
+- Normal remote administration. Correlate approved source IP, account and access window;
+  do not globally exclude administrators.
+level: low

@@ -1,0 +1,3 @@
+SelbiADLab_CL
+| where Channel == "Security" and Provider == "Microsoft-Windows-Security-Auditing"
+| where (EventID == 4624 and LogonType == 10) and (not((IpAddress in~ ("127.0.0.1", "::1", "-"))))

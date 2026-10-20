@@ -1,0 +1,27 @@
+title: Burst of distinct files with ransomware-associated extensions
+id: 1a3a938c-2c10-5c58-b9e4-3d3997630332
+status: experimental
+description: At least 20 distinct suspicious file paths from the same host and process
+  image in any one-minute window. Behavioral evidence; no proof of cryptographic encryption.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1486/
+tags:
+- attack.impact
+- attack.t1486
+correlation:
+  type: value_count
+  rules:
+  - 78874254-c831-569c-96ef-82a053cc0b60
+  group-by:
+  - Computer
+  - Image
+  timespan: 1m
+  condition:
+    gte: 20
+    field: TargetFilename
+falsepositives:
+- Bulk restoration, synthetic lab emission or encryption tools. Group by ProcessGuid
+  in a future schema to separate simultaneous instances.
+level: high

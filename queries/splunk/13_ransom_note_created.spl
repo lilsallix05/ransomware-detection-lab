@@ -1,0 +1,1 @@
+index=adlab sourcetype=selbi:adlab Provider="Microsoft-Windows-Sysmon" EventID=11 (TargetFilename IN ("*\\HOW_TO_DECRYPT.txt", "*\\README_RESTORE_FILES.txt", "*\\RECOVER_FILES.html"))

@@ -1,0 +1,26 @@
+title: Windows backup catalog deletion
+id: a60487ac-cd52-5f41-838b-d4ac658ac28a
+status: experimental
+description: Windows backup catalog deletion can inhibit recovery. Match additional
+  backup tools separately.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1490/
+tags:
+- attack.impact
+- attack.t1490
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image|endswith: \wbadmin.exe
+    CommandLine|contains|all:
+    - delete
+    - catalog
+  condition: selection
+falsepositives:
+- Backup repair operations approved by storage owner. Preserve the ticket and recovery
+  validation.
+level: high

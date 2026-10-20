@@ -1,0 +1,25 @@
+title: Boot recovery disabled with bcdedit
+id: dbf82dbb-0113-540e-8f13-3a506bebb4c0
+status: experimental
+description: Recovery-enabled setting disabled in boot configuration. String selection
+  tolerates spacing but may match quoted commentary.
+author: Selbinyyaz Odekova
+date: '2026-10-19'
+references:
+- https://attack.mitre.org/techniques/T1490/
+tags:
+- attack.impact
+- attack.t1490
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image|endswith: \bcdedit.exe
+    CommandLine|contains|all:
+    - recoveryenabled
+    - 'no'
+  condition: selection
+falsepositives:
+- Troubleshooting boot recovery. Require a documented rollback and maintenance approval.
+level: high

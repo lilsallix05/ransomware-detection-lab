@@ -1,0 +1,8 @@
+<Sysmon schemaversion="4.90">
+  <HashAlgorithms>sha256</HashAlgorithms>
+  <EventFiltering>
+    <RuleGroup name="Lab process creation" groupRelation="or"><ProcessCreate onmatch="exclude" /></RuleGroup>
+    <RuleGroup name="Lab LSASS access" groupRelation="or"><ProcessAccess onmatch="include"><TargetImage condition="end with">\lsass.exe</TargetImage></ProcessAccess></RuleGroup>
+    <RuleGroup name="Lab file impact" groupRelation="or"><FileCreate onmatch="include"><TargetFilename condition="end with">.locked</TargetFilename><TargetFilename condition="end with">.encrypted</TargetFilename><TargetFilename condition="end with">.ryk</TargetFilename><TargetFilename condition="end with">\HOW_TO_DECRYPT.txt</TargetFilename><TargetFilename condition="end with">\README_RESTORE_FILES.txt</TargetFilename><TargetFilename condition="end with">\RECOVER_FILES.html</TargetFilename></FileCreate></RuleGroup>
+  </EventFiltering>
+</Sysmon>

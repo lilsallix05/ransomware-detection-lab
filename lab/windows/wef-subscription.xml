@@ -1,0 +1,7 @@
+<Subscription xmlns="http://schemas.microsoft.com/2006/03/windows/events/subscription">
+  <SubscriptionId>Selbi-Lab</SubscriptionId><SubscriptionType>SourceInitiated</SubscriptionType>
+  <Description>Isolated Selbi AD lab telemetry only</Description><Enabled>true</Enabled><Uri>http://schemas.microsoft.com/wbem/wsman/1/windows/EventLog</Uri>
+  <ConfigurationMode>MinLatency</ConfigurationMode><Delivery Mode="Push"><Batching><MaxItems>1</MaxItems><MaxLatencyTime>1000</MaxLatencyTime></Batching><PushSettings><Heartbeat Interval="60000"/></PushSettings></Delivery>
+  <Query><![CDATA[<QueryList><Query Id="0"><Select Path="Security">*[System[(EventID=4624 or EventID=4769 or EventID=5145 or EventID=1102)]]</Select><Select Path="System">*[System[EventID=7045]]</Select><Select Path="Microsoft-Windows-Sysmon/Operational">*[System[(EventID=1 or EventID=10 or EventID=11)]]</Select><Select Path="Microsoft-Windows-PowerShell/Operational">*[System[EventID=4104]]</Select></Query></QueryList>]]></Query>
+  <ReadExistingEvents>false</ReadExistingEvents><TransportName>HTTP</TransportName><ContentFormat>Events</ContentFormat><LogFile>ForwardedEvents</LogFile><AllowedSourceDomainComputers>O:NSG:NSD:(A;;GA;;;__LAB_GROUP_SID__)</AllowedSourceDomainComputers>
+</Subscription>

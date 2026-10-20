@@ -1,0 +1,3 @@
+SelbiADLab_CL
+| where Provider == "Microsoft-Windows-Sysmon" and EventID == 1
+| where ParentImage endswith "\\WmiPrvSE.exe" and (Image endswith "\\cmd.exe" or Image endswith "\\powershell.exe" or Image endswith "\\pwsh.exe")

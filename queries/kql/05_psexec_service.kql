@@ -1,0 +1,3 @@
+SelbiADLab_CL
+| where Channel == "System" and Provider == "Service Control Manager"
+| where EventID == 7045 and ImagePath contains "PSEXESVC"

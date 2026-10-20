@@ -1,0 +1,26 @@
+{
+  "input": {
+    "path": "work/public-kerberoasting.xml",
+    "sha256": "fd4d9e35bd90964710a2f67bd90476ac69301310256bb319b16662aa04821d79",
+    "accepted": 1,
+    "rejected": []
+  },
+  "events": 1,
+  "alerts": [
+    {
+      "rule_id": "fdc3317b-1ae4-5da3-af8c-68fd10f89f79",
+      "slug": "04_rc4_service_ticket",
+      "title": "RC4 service ticket for a non-machine service",
+      "level": "medium",
+      "time": "2024-04-08T23:56:13.253708900Z",
+      "computer": "ar-win-dc.attackrange.local",
+      "event_ids": [
+        "win:2844f835985c23a15f19a487"
+      ],
+      "techniques": [
+        "T1558.003"
+      ]
+    }
+  ],
+  "native_siem_execution": false
+}
